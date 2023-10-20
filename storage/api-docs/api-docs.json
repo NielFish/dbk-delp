@@ -1,0 +1,37 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Daniel Ernesto Lopez Sibrian",
+        "description": "API de ejemplo para la clase de desarrollo de backend y apis",
+        "contact": {
+            "name": "Daniel Ernesto Lopez Sibrian",
+            "url": "https://localhost/api/",
+            "email": "ia.daniellopez1@ufg.edu.sv"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/ejecutar": {
+            "get": {
+                "tags": [
+                    "ejecutar"
+                ],
+                "summary": "Esta es un endpoint/metodo para obtener datos y mostrarlos al usuario",
+                "description": "Descripcion de prueba para la clase de desarrollo de backend y api desarrollada de la clase 19/10",
+                "operationId": "ed42aafacf51d9aa570647800fcaa0e9",
+                "responses": {
+                    "200": {
+                        "description": "Se devuelven todos los registros cuando la consulta sea satisfactoria"
+                    },
+                    "500": {
+                        "description": "No se pudo realizar la ejecución al parecer hubo un error interno"
+                    }
+                }
+            }
+        }
+    }
+}
