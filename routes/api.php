@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\respuestaController;
+use App\Http\Controllers\respuestaController;
+use App\Http\Controllers\PaisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,12 @@ use App\http\Controllers\respuestaController;
 
 
 Route::get("/ejecutar", [respuestaController::class, "index"]);
+
+Route::post("/nuevo",[PaisController::class,"crearPais"]);
+
+Route::get("/obtener",[PaisController::class,"obtenerPais"]);
+
+Route::delete("/eliminar/{id}", [PaisController::class, "eliminarPais"]);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
