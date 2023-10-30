@@ -31,16 +31,25 @@ class PaisController extends Controller
             "cantidad"=>1
         ]);
     }
-
-    public function eliminarPais(Request $request){
+    
+    public function eliminarPais($id) {
         $Pais = Pais::find($id);
-        $Pais->delete();
-
-        return response()->json([
-            "success"=>true,
-            "message" => "País eliminado exitosamente",
-            "data" => null,
-            "cantidad"=>0
-        ]);
+        if ($Pais) {
+            $Pais->delete();
+            return response()->json([
+                "success" => true,
+                "message" => "País eliminado exitosamente",
+                "data" => null,
+                "cantidad" => 0
+            ]);
+        } else {
+            return response()->json([
+                "success" => false,
+                "message" => "El país no se encontró o no se pudo eliminar.",
+                "data" => null,
+                "cantidad" => 0
+            ]);
+        }
     }
+
 }
