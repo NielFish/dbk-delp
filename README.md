@@ -1,3 +1,23 @@
+## Clonar un proyecto Laravel: qué hacer después
+
+- Instalar dependencias:
+> composer install
+
+> npm install
+- Crear un nuevo archivo: 
+> .env.example ||  .env
+- Generar una key nueva: 
+> php artisan key:generate
+- Ejecutar migraciones:
+> php artisan migrate 
+- Por ultimo correr el servidor:
+> php artisan serve
+
+
+
+
+
+
 Laravel HTTP Client With GuzzleHttp: https://www.youtube.com/watch?v=aJMLL1E350Q
 
 
