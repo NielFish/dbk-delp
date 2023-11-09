@@ -15,6 +15,42 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/obtener": {
+            "get": {
+                "tags": [
+                    "obtener"
+                ],
+                "summary": "Esta es un endpoint/metodo para obtener datos y mostrarlos al usuario",
+                "description": "Descripcion de prueba para la clase de desarrollo de backend y api desarrollada de la clase 19/10",
+                "operationId": "2572d9320dfbb5aeaf9a1d7d6e238a2c",
+                "responses": {
+                    "200": {
+                        "description": "Se devuelven todos los registros cuando la consulta sea satisfactoria"
+                    },
+                    "500": {
+                        "description": "No se pudo realizar la ejecución al parecer hubo un error interno"
+                    }
+                }
+            }
+        },
+        "/api/nuevo": {
+            "post": {
+                "tags": [
+                    "nuevo"
+                ],
+                "summary": "Esta es un endpoint/metodo para obtener datos y mostrarlos al usuario",
+                "description": "Descripcion de prueba para la clase de desarrollo de backend y api desarrollada de la clase 19/10",
+                "operationId": "dd566d3abe549d9562cd9048b0b0f8f6",
+                "responses": {
+                    "200": {
+                        "description": "Se devuelven todos los registros cuando la consulta sea satisfactoria"
+                    },
+                    "500": {
+                        "description": "No se pudo realizar la ejecución al parecer hubo un error interno"
+                    }
+                }
+            }
+        },
         "/api/ejecutar": {
             "get": {
                 "tags": [
