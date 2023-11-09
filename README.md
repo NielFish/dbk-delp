@@ -12,18 +12,91 @@
 > php artisan migrate 
 - Por ultimo correr el servidor:
 > php artisan serve
+- Para ver la documentacion:
+> http://your-api-project.test/api/documentation
 
 
 
+## Instalar y Utilizar SWAGGER
+
+1. Instala el paquete de Swagger usando Composer:
+> composer require darkaonline/l5-swagger
+
+2. Publica los archivos necesarios:
+> php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+
+3. En el archivo config/l5-swagger.php, asegúrate de tener la siguiente configuración:
+> 'generate_always' => env('L5_SWAGGER_GENERATE_ALWAYS', true),
+
+4. Agrega la información de la API en tu controlador base (app/Http/Controllers/Controller.php):
+```php
+/**
+ * @OA\Info(
+ *      version="1.0.0",
+ *      title="NOMBRE DE LA API",
+ *      description="DESCRIPCIÓN DE LA API",
+ *      @OA\Contact(
+ *          email="usuario@ufg.edu.sv",
+ *          name="Universidad Francisco Gavidia",
+ *          url="https://localhost/api/"
+ *      ),
+ *      @OA\License(
+ *          name="Apache 2.0",
+ *          url="http://www.apache.org/licenses/LICENSE-2.0.html"
+ *      )
+ * )
+ */
+
+```
+
+5. Define una ruta en tu archivo de rutas (routes/web.php):
+```php
+/**
+ * @OA\Get(
+ *     path="/api/ejecutar",
+ *     summary="informacion breve del endpoint desde el route",
+ *     @OA\Response(response="200", description="List of users"),
+ * )
+ */
+Route::get('/ejecutar', ['RespuestaController::class,index']);
+```
+
+6. En tu controlador (RespuestaController.php), documenta el método:
+```php
+/**
+ * 
+ * Esta es una descripción de nuestro método aquí no debería ser muy extensa la descripción.
+ * @return \Illuminate\Http\Response
+ *
+ * @OA\Get(
+ *     path="/api/ejecutar",
+ *     tags={"ejecutar"},
+ *     summary="Descripción corta de lo que se ejecuta en el método y que devolverá el endpoint",
+ *     @OA\Response(
+ *         response=200,
+ *         description="Se devuelven todos los registros"
+ *     ),
+ *     @OA\Response(
+ *         response=500,
+ *         description="No se pudo realizar la ejecución al parecer hubo un error interno"
+ *     )
+ * ) 
+ */
+
+```
+
+7. Finalmente, genera la documentación con el comando:
+> php artisan l5-swagger:generate	
+
+8. Accede a la documentación en:
+> http://your-api-project.test/api/documentation
+
+
+-----------------------------
 
 
 
 Laravel HTTP Client With GuzzleHttp: https://www.youtube.com/watch?v=aJMLL1E350Q
-
-
-
-
-
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
